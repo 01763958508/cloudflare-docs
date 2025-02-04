@@ -51,7 +51,7 @@ Send a `POST` request to the [Create Zero Trust certificate](/api/resources/zero
 ```sh
 curl --request POST \
 https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/gateway/certificates \
---header "Authorization: Bearer <API_TOKEN>"
+--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
 ```
 
 The API will respond with the ID and contents of the new certificate.
@@ -88,7 +88,7 @@ Send a `POST` request to the [Activate a Zero Trust certificate](/api/resources/
 ```sh
 curl --request POST \
 https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/gateway/certificates/{certificate_id}/activate \
---header "Authorization: Bearer <API_TOKEN>"
+--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
 ```
 
 </TabItem> </Tabs>
@@ -114,7 +114,7 @@ Send a `PUT` request to the [Update Zero Trust account configuration](/api/resou
 curl --request PUT \
 'https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/gateway/configuration' \
 --header "Content-Type: application/json" \
---header "Authorization: Bearer <API_TOKEN>" \
+--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
 --data '{
   "settings": {
     "certificate": {
