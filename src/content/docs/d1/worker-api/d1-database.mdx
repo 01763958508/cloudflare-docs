@@ -247,7 +247,7 @@ return new Response(dump, {
 
 Starts a D1 Session which activates read replication.
 
-```js
+```ts
 const session = env.DB.withSession("<constraint> or bookmark");
 ```
 
@@ -263,3 +263,22 @@ const session = env.DB.withSession("<constraint> or bookmark");
 
 #### Return values
 
+- <code>D1DatabaseSession</code>: <Type text="Object"/>
+  - An object which contains the methods [`prepare()`](/d1/worker-api/d1-database#prepare) and [`getBookmark`](/d1/worker-api/d1-database#getbookmark).
+
+### `getBookmark`
+
+Retrieves the `bookmark` from the D1 Session.
+
+```ts
+const session = db.withSession("first-primary");
+return { bookmark } = session.getBookmark();
+```
+
+#### Parameters
+
+- None
+
+#### Return values
+
+-
