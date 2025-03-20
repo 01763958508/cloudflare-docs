@@ -46,6 +46,10 @@ You can also edit the secret **Permission scope** and **Comment**.
 
 ## Delete a secret
 
+:::caution
+Before deleting a secret, make sure it is not deployed. Secrets Store secrets in use are listed in the respective [Workers application](https://dash.cloudflare.com/?to=/:account/workers-and-pages/) under **Settings** > **Bindings**.
+:::
+
 1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com/) and select your account.
 2. Go to **Secrets Store**.
 3. Search for the secret you would like to delete within the existing secrets list.
