@@ -11,10 +11,16 @@ Protocol detection only applies to devices connected to Zero Trust via the WARP 
 
 ## Turn on protocol detection
 
+To turn on protocol detection:
+
 1. In [Zero Trust](https://one.dash.cloudflare.com/), go to **Settings** > **Network** > **Firewall**.
 2. Turn on **Protocol Detection**.
 
 You can now use _Detected Protocol_ as a selector in a [Network policy](/cloudflare-one/policies/gateway/network-policies/#detected-protocol).
+
+### HTTP inspection ports
+
+By default, Gateway will only inspect HTTP traffic through port `80`. Additionally, if you turn on [TLS decryption](/cloudflare-one/policies/gateway/http-policies/tls-decryption/), Gateway will inspect HTTPS traffic through port `443`. To detect HTTP and HTTPS traffic on ports other than `80` and `443`, under **HTTP inspection ports**, choose _Inspect on all ports_.
 
 ## Supported protocols
 
