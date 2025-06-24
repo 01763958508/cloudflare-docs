@@ -98,5 +98,22 @@ curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-
   }' \
   --output "screenshot.png"
 ```
+## Take a screenshot of a specific element using the selector option
+To capture a screenshot of a specific element on a webpage, use the `selector` option with a valid CSS selector. You can also configure the `viewport` to control the page dimensions during rendering.
+
+```bash
+curl -X POST 'https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-rendering/screenshot' \
+  -H 'Authorization: Bearer <apiToken>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "url": "https://example.com",
+    "selector": "#example_element_name",
+    "viewport": {
+      "width": 1200,
+      "height": 1600
+    }
+  }' \
+  --output "screenshot.png"
+```
 
 Many more options exist, like setting HTTP credentials using `authenticate`, setting `cookies`, and using `gotoOptions` to control page load behaviour - check the endpoint [reference](/api/resources/browser_rendering/subresources/screenshot/methods/create/) for all available parameters.
