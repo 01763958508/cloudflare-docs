@@ -11,9 +11,11 @@ When you receive an email, the email lands on your Microsoft 365 inbox, and then
 
 ![Email flow when setting up Microsoft 365 with Email Security.](~/assets/images/email-security/deployment/api-setup/journaling/Email_Security_MS365_Journaling_Diagram.png)
 
+Before you can [enable Email Security](/cloudflare-one/email-security/setup/post-delivery-deployment/bcc-journaling/journaling-setup/m365-journaling/#enable-email-security), you will have to configure your email environment in your Microsoft 365 account.
+
 <Render file="email-security/deployment/m365-gcc" />
 
-## Journaling
+## Configure your Microsoft 365 environment
 
 <Render file="email-security/deployment/journaling-connector" />
 
@@ -21,11 +23,9 @@ When you receive an email, the email lands on your Microsoft 365 inbox, and then
 
 <Render file="email-security/deployment/bcc-table-geographic-locations" />
 
----
+## Enable Email Security
 
-## Enable Microsoft 365 journaling deployment
-
-To enable Microsoft 365 journaling deployment:
+To enable Email Security journaling deployment:
 
 1. Log in to [Zero Trust](https://one.dash.cloudflare.com/).
 2. Select **Zero Trust**.
@@ -34,7 +34,7 @@ To enable Microsoft 365 journaling deployment:
 5. Select **BCC/Journaling**.
 6. Select **Integrate with MS** > **Authorize**.
 
-## Integrate with Microsoft 365
+### 1. Integrate with Microsoft 365
 
 To integrate with Microsoft 365:
 
@@ -49,7 +49,7 @@ To integrate with Microsoft 365:
 
 Continue with [Connect your domains](#connect-your-domains) for the next steps.
 
-### Connect your domains
+### 2. Connect your domains
 
 On the **Set up Email Security** page:
 
@@ -67,6 +67,6 @@ To view your connected domains:
 1. Go to **Settings**.
 2. Locate your domain, select the three dots > **View domain**. Selecting **View domain** will display information about your domain.
 
-## Next steps
+### 3. Enable logs
 
 <Render file="email-security/enable-logs" />

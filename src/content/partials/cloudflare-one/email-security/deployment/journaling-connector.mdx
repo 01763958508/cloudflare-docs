@@ -18,7 +18,7 @@ On the other hand, if your email architecture requires outbound messages to trav
 2. Select **Add a connector**.
 
 3. Configure the new connector as follows:
-   - **Connection From**: Office 365
+   - **Connection From**: Microsoft 365
    - **Connection to**: Partner Organization
 
 4. Select **Next**.
@@ -32,13 +32,13 @@ On the other hand, if your email architecture requires outbound messages to trav
 
 7. Configure the **Use of connector** setting as follows:
    - Select **Only when email messages are sent to these domains**.
-   - In the text field, enter `journaling.mxrecord.io` as the host address, and select **+** to add the domain.
+   - In the text field, enter `<account tag>@cf-emailsecurity.com` as the host address, and select **+** to add the domain.
 
 8. Select **Next**.
 
 9. Configure the **Routing** setting as follows:
    - Select **Route email through these smart hosts**.
-   - In the text field, enter `journaling.mxrecord.io` as the [smart host](https://en.wikipedia.org/wiki/Smart_host) address, and select **+** to add the domain.
+   - In the text field, enter `<account tag>@cf-emailsecurity.com` as the [smart host](https://en.wikipedia.org/wiki/Smart_host) address, and select **+** to add the domain.
 
 10. Select **Next**.
 
@@ -78,20 +78,21 @@ Your connector is now active. You can find it in **Exchange admin center** > **M
 
 7. Select **New rule** to configure a journaling rule, and configure it as follows:
 
-   * **Send journal reports to**: This address is specific to each customer tenant, and can be found in [Zero Trust](https://one.dash.cloudflare.com/) by going to:
+   - **Send journal reports to**: This address is specific to each customer tenant, and can be found in [Zero Trust](https://one.dash.cloudflare.com/) by going to:
       - **Email Security** > **Settings**.
       - Locate your domain under **Your domains**.
-      - Select the three dots > **View domain** > **Service address**.
-      . For example, `<customer_name>@journaling.mxrecord.io`.
-   * **Journal Rule Name**: `Journal Messages to Cloudflare Email Security`
-   * **Journal messages sent or received from**: *Everyone*
-   * **Type of message to journal**: *External messages only*
+      - Select the three dots > **View domain** > **Service address**. For example, `<account tag>@cf-emailsecurity.com`.
+   - **Journal Rule Name**: `Journal Messages to Cloudflare Email Security`
+   - **Journal messages sent or received from**: *Everyone*
+   - **Type of message to journal**: *External messages only*
 
 8. Select **Next**.
 
 9. Verify the information is correct, and select **Submit** > **Done**.
 
-Once saved, the rule is automatically active. However, it may take a few minutes for the configuration to propagate and start pushing messages to Email Security. After it propagates, you can access the Email Security dashboard to check the number of messages processed. This number will grow as journaled messages are sent to Email Security from your Exchange server.
+Once saved, the rule is automatically active. However, it may take a few minutes for the configuration to propagate and start pushing messages to Email Security. After it propagates, you can access Email Security in the [Zero Trust dashboard](https://one.dash.cloudflare.com/) to check the number of messages processed. This number will grow as journaled messages are sent to Email Security from your Exchange server.
+
+Refer to [Email monitoring](/cloudflare-one/email-security/email-monitoring/) to monitor your inbox.
 
 ### 3. Compliance
 
@@ -116,17 +117,16 @@ After creating the distribution groups based on regions for your users, configur
 
 6. Still in the Exchange (legacy) screen, select **Journal Rules**.
 
-
 7. Select **New rule** to configure a journaling rule, and configure it as follows:
 
-   * **Send journal reports to**: This address is specific to each customer tenant, and can be found in [Zero Trust](https://one.dash.cloudflare.com/) by going to:
+   - **Send journal reports to**: This address is specific to each customer tenant, and can be found in [Zero Trust](https://one.dash.cloudflare.com/) by going to:
       - **Email Security** > **Settings**.
       - Locate your domain under **Your domains**.
       - Select the three dots > **View domain** > **Service address**.   
       If you need to process emails in certain geographic regions, refer to the [Geographic locations](#geographic-locations) table for more information on what address you should use.
-   * **Journal Rule Name**: `Journal Messages to Cloudflare Email Security`
-   * **Journal messages sent or received from**: *A specific user or group* and select the user group you [created above](#3-compliance).
-   * **Type of message to journal**: *External messages only*
+   - **Journal Rule Name**: `Journal Messages to Cloudflare Email Security`
+   - **Journal messages sent or received from**: *A specific user or group* and select the user group you [created above](#3-compliance).
+   - **Type of message to journal**: *External messages only*
 
 8. Select **Next**.
 
