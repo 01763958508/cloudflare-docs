@@ -8,15 +8,17 @@ description: Use Cloudflare public key infrastructure (PKI) to create client cer
 
 ---
 
-import { GlossaryDefinition, Render } from "~/components";
+import { GlossaryDefinition, Render, DirectoryListing } from "~/components";
 
-Use Cloudflare public key infrastructure (PKI) to create client certificates, or [bring your own CA for mTLS](/ssl/client-certificates/byo-ca/).
+Use Cloudflare's public key infrastructure (PKI) to create client certificates, or [bring your own CA for mTLS](/ssl/client-certificates/byo-ca/).
 
 <GlossaryDefinition term="mTLS (mutual TLS)" />
 
 :::note[mTLS at Cloudflare]
 For a broader overview of mTLS at Cloudflare refer to [learning paths](/learning-paths/mtls/concepts/).
 :::
+
+---
 
 ## Scope
 
@@ -27,6 +29,8 @@ The account-level CA can be either:
 - The Cloudflare-managed CA: This is the default option. Certificates and hostname associations are listed on your [dashboard](https://dash.cloudflare.com/?to=/:account/:zone/ssl-tls/client-certificates/).
 - A [BYOCA](/ssl/client-certificates/byo-ca/) certificate: This is an API-only option, available on Enterprise accounts. Certificates and hostnames associations are **not** listed on your [dashboard](https://dash.cloudflare.com/?to=/:account/:zone/ssl-tls/client-certificates/).
 
+---
+
 ## Use cases
 
 (Intro blurb and new link out to LP)
@@ -35,3 +39,9 @@ The account-level CA can be either:
 - [API Shield](/api-shield/security/mtls/configure/)
 - [Access](/cloudflare-one/identity/devices/access-integrations/mutual-tls-authentication/)
 - [Workers](/workers/runtime-apis/bindings/mtls/)
+
+---
+
+## Further resources
+
+<DirectoryListing />
