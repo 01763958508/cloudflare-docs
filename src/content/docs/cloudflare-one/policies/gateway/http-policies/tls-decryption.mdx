@@ -42,7 +42,7 @@ Gateway does not support TLS decryption for applications which use:
 - [ESNI and ECH handshake encryption](#esni-and-ech)
 - [Automatic HTTPS upgrades](#google-chrome-automatic-https-upgrades)
 
-### Non-standard ports <Badge text="Beta" variant="caution" size="small" />
+### Inspect on all ports <Badge text="Beta" variant="caution" size="small" />
 
 By default, Gateway will only inspect HTTP traffic through port `80`. Additionally, if you turn on TLS decryption, Gateway will inspect HTTPS traffic through port `443`. To detect HTTP and HTTPS traffic on ports other than `80` and `443`, you can turn on [protocol detection](/cloudflare-one/policies/gateway/network-policies/protocol-detection/):
 
@@ -97,6 +97,10 @@ To disable automatic HTTPS upgrades on a per-browser basis, go to [Chrome flags]
 Chrome Enterprise users can turn off automatic HTTPS upgrades for all URLs with a [`HttpsUpgradesEnabled` management policy](https://chromeenterprise.google/policies/#HttpsUpgradesEnabled).
 
 </TabItem> </Tabs>
+
+### Mutual TLS (mTLS)
+
+When decrypting TLS to inspect traffic, connections that use mutual TLS (mTLS) will fail because Gateway cannot return the necessary client certificate. To prevent connection failures, create a [Do Not Inspect policy](/cloudflare-one/policies/gateway/http-policies/#do-not-inspect) for this traffic.
 
 ### ESNI and ECH
 

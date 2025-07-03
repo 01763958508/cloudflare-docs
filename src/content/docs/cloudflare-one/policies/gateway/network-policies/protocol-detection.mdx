@@ -22,10 +22,6 @@ You can now use _Detected Protocol_ as a selector in a [Network policy](/cloudfl
 
 By default, Gateway will only inspect HTTP traffic through port `80`. Additionally, if you turn on [TLS decryption](/cloudflare-one/policies/gateway/http-policies/tls-decryption/), Gateway will inspect HTTPS traffic through port `443`. To detect HTTP and HTTPS traffic on ports other than `80` and `443`, under **HTTP inspection ports**, choose _Inspect on all ports_.
 
-:::caution[mTLS limitation]
-When inspecting traffic on all ports, connections that use mutual TLS (mTLS) will fail because Gateway cannot return the necessary client certificate. To prevent connection failures, create a [Do Not Inspect policy](/cloudflare-one/policies/gateway/http-policies/#do-not-inspect) for this traffic.
-:::
-
 ## Supported protocols
 
 Gateway supports detection and filtering of the following protocols:
