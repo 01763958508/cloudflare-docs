@@ -116,7 +116,7 @@ To learn about potential cost savings from using R2, refer to the [R2 pricing ca
 
 ## R2 billing examples
 
-### Data storage example 1
+### Standard storage example
 
 If a user writes 1,000 objects in R2 standard storage for 1 month with an average size of 1 GB and requests each 1,000 times per month, the estimated cost for the month would be:
 
@@ -129,18 +129,20 @@ If a user writes 1,000 objects in R2 standard storage for 1 month with an averag
 | **TOTAL**          |                                             |              |                   | **$14.85** |
 |                    |                                             |              |                   |            |
 
-### Data storage example 2
+### Infrequent access example
 
-If a user writes 1,000 objects in R2 infrequent access storage for 1 month with an average size of 1 GB and requests 1,000 times per month, the estimated cost for the month would be:
+If a user writes 1,000 objects in R2 infrequent access storage for 5 days with an average size of 1 GB and requests 1,000 times in 5 days, the estimated cost for the month would be:
 
 |                    | Usage                                       | Free Tier    | Billable Quantity | Price      |
 | ------------------ | ------------------------------------------- | ------------ | ----------------- | ---------- |
 | Class B Operations | (1,000 objects) \* (1,000 reads per object) | 10 million   | 0                 | $0.00      |
 | Class A Operations | (1,000 objects) \* (1 write per object)     | 1 million    | 0                 | $0.00      |
-| Storage            | (1,000 objects) \* (1 GB per object)        | 10 GB-months | 990 GB-months     | $9.90      |
+| Storage            | (1,000 objects) \* (1 GB per object)        | 10 GB-months | 990 GB-months     | $14.85     |
 | Data retrieval     | (1,000 objects) \* (1 GB per object)        | 0 GB         | 1,000 GB          | $10.00     |
-| **TOTAL**          |                                             |              |                   | **$19.00** |
+| **TOTAL**          |                                             |              |                   | **$24.85** |
 |                    |                                             |              |                   |            |
+
+Note that the minimal storage duration for infrequent access storage is 30 days, which means the billable quantity is 990 GB-months, rather than 157 GB-months.
 
 ### Asset hosting
 
