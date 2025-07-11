@@ -8,7 +8,7 @@ sidebar:
 description: Stream ReadableStream from Durable Objects.
 ---
 
-import { GlossaryTooltip, WranglerConfig } from "~/components";
+import { GlossaryTooltip, WranglerConfig, TypeScriptExample } from "~/components";
 
 This example demonstrates:
 
@@ -17,9 +17,11 @@ This example demonstrates:
 - The Worker reads and logs the values from the stream.
 - The Worker then cancels the stream after 5 values.
 
+<TypeScriptExample>
 ```ts
 import { DurableObject } from 'cloudflare:workers';
 
+// Send incremented counter value every second
 async function* dataSource(signal: AbortSignal) {
     let counter = 0;
     while (!signal.aborted) {
@@ -35,17 +37,15 @@ export class MyDurableObject extends DurableObject<Env> {
         const abortController = new AbortController();
 
         const stream = new ReadableStream({
-            start(controller) {
+            async start(controller) {
                 if (request.signal.aborted) {
                     controller.close();
                     return;
                 }
 
-                (async () => {
-                    for await (const value of dataSource(AbortSignal.any([request.signal, abortController.signal]))) {
-                        controller.enqueue(new TextEncoder().encode(String(value)));
-                    }
-                })();
+                for await (const value of dataSource(AbortSignal.any([request.signal, abortController.signal]))) {
+                    controller.enqueue(new TextEncoder().encode(String(value)));
+                }
             },
             cancel() {
                 console.log('Stream cancelled');
@@ -91,6 +91,7 @@ export default {
     },
 } satisfies ExportedHandler<Env>;
 ```
+</TypeScriptExample>
 
 :::note
 
