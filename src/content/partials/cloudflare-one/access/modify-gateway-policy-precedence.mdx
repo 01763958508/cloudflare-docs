@@ -22,8 +22,8 @@ Update the policy's [order of precedence](/cloudflare-one/policies/gateway/order
 </li>
 
 </ol>
-This Gateway policy will apply to all Access for Infrastructure targets, including RDP and SSH.
 
+{ props.selector === "Access Infrastructure Target" &&	(<p> This Gateway policy will apply to all Access for Infrastructure targets, including RDP and SSH. </p>) }
 
 :::note
 Users must pass the policies in your Access application before they are granted access. The Gateway Allow policy is strictly for routing and connectivity purposes.
