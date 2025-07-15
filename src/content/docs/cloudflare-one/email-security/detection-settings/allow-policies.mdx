@@ -30,6 +30,14 @@ To configure allow policies:
    - **Uploading an allow policy**: Upload a file no larger than 150 KB. The file can only contain `Pattern`, `Pattern Type`, `Verify Email`, `Trusted Sender`, `Exempt Recipient`, `Acceptable Sender`, `Notes` fields. The first row must be a header row. Refer to [CSV uploads](/cloudflare-one/email-security/detection-settings/allow-policies/#csv-uploads) for an example file.
 6. Select **Save**.
 
+:::caution[Accept sender]
+If you choose to enable **Accept sender**, ensure that **Sender verification (Recommended)** is turned on at all times.
+
+Companies such as PayPal, Docusign, and Shopify should not enable **Sender verification (Recommended)** when configuring an allow policy.
+
+Email Security is able to recognize sender verified emails used for nefarious activity. However, enabling **Accept sender** will cause Email Security to not recognize nefarious activities and therefore create security concerns.
+:::
+
 ### CSV uploads
 
 You can upload a file no larger than 150 KB. The file can only contain `Pattern`, `Pattern Type`, `Verify Email`, `Trusted Sender`, `Exempt Recipient`, `Acceptable Sender`, `Notes`. The first row must be a header row.
