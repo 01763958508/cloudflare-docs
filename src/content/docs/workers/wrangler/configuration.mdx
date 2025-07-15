@@ -1222,6 +1222,14 @@ You can configure various aspects of local development, such as the local protoc
 
   - Host to forward requests to, defaults to the host of the first `route` of the Worker.
 
+- `enable_containers` <Type text="boolean" /> <MetaInfo text="optional" />
+
+  - Whether to build and connect to containers. This requires a Docker daemon to be running. Defaults to `true`.
+
+- `container_engine` <Type text="string" /> <MetaInfo text="optional" />
+
+  - Either the Docker unix socket i.e. `unix:///var/run/docker.sock` or a full configuration. Note that windows is only supported via WSL at the moment.
+
 Example:
 
 <WranglerConfig>
