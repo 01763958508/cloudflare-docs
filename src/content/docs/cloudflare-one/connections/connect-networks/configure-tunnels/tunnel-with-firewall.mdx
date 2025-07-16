@@ -8,6 +8,13 @@ tableOfContents: false
 
 You can implement a positive security model with Cloudflare Tunnel by blocking all ingress traffic and allowing only egress traffic from `cloudflared`. Only the services specified in your tunnel configuration will be exposed to the outside world.
 
+How you configure your firewall depends on the firewall type:
+
+- If your firewall supports domain-based rules (FQDN allowlists), you can allow outbound connections to the hostnames listed below.
+- If your firewall requires IP-based rules, allow outbound connections to all listed IP addresses for each domain.
+
+Ensure port `7844` is allowed for both TCP and UDP protocols (for `http2` and `quic`).
+
 ## Ports
 
 The parameters below can be configured for egress traffic inside of a firewall.
